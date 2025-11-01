@@ -44,19 +44,17 @@
 
 | 클래스명 | 역할 |
 |-----------|------|
-| `Lotto` | 로또 한 장 |
+| `LottoSheet` | 로또 한 장, 당첨 번호와 생성 번호 대조 |
 | `LottoMachine` | 로또 발매기에서 "자동 선택"으로 로또 뽑기 |
 | `LottoGenerator` | 로또 기계에서 로또 번호 생성 |
-| `LottoMatcher` | 당첨 번호와 생성 번호 대조 |
 | `ReturnRateGenerator` | 수익률 생성 |
 
 ### Validator
 
 | 클래스명 | 역할 |
 |-----------|------|
-| `PurchaseValidator` | 로또 구매 금액 검증 |
-| `LottoFormatValidator` | 입력받은 당첨 번호 형식 검증 |
-| `LottoValidator` | 입력받은 당첨 번호와 생성한 로또 번호가 1~45인지 검증 |
+| `InputValidator` | 1. 로또 구매 금액 검증<br>2. 입력받은 당첨 번호 형식 검증 |
+| `LottoNumberValidator` | 1. 입력받은 당첨 번호와 생성한 로또 번호가 1~45인지 검증<br>2. 생성한 로또 번호가 중복인지 검증 |
 
 ### View
 
