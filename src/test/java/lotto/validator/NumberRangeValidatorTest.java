@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-class LottoNumberValidatorTest {
+class NumberRangeValidatorTest {
     @Test
     @DisplayName("주어진 범위에 맞는 정상적인 숫자 검증")
     void enterNumberInRange() {
@@ -13,7 +13,7 @@ class LottoNumberValidatorTest {
         int generatedNumber = 10;
 
         //when and then
-        assertThatCode(() -> LottoNumberValidator.isInRange(generatedNumber))
+        assertThatCode(() -> NumberRangeValidator.isInRange(generatedNumber))
                 .doesNotThrowAnyException();
     }
 
@@ -25,7 +25,7 @@ class LottoNumberValidatorTest {
         int greaterThanRangeNumber = 50;
 
         // when and then
-        assertThatIllegalArgumentException().isThrownBy(() -> LottoNumberValidator.isInRange(lessThanRangeNumber));
-        assertThatIllegalArgumentException().isThrownBy(() -> LottoNumberValidator.isInRange(greaterThanRangeNumber));
+        assertThatIllegalArgumentException().isThrownBy(() -> NumberRangeValidator.isInRange(lessThanRangeNumber));
+        assertThatIllegalArgumentException().isThrownBy(() -> NumberRangeValidator.isInRange(greaterThanRangeNumber));
     }
 }
