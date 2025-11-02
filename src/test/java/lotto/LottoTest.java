@@ -1,10 +1,12 @@
 package lotto;
 
+import lotto.domain.Lotto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class LottoTest {
@@ -21,5 +23,18 @@ class LottoTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    // TODO: 추가 기능 구현에 따른 테스트 코드 작성
+    @Test
+    @DisplayName("몇 개가 당첨됐는지 확인")
+    void countWinningNumbers() {
+        List<Integer> winningNumbers = List.of(4, 5, 6, 8, 9, 10);
+        List<Integer> generatedNumbers = List.of(1, 2, 7, 4, 5, 6);
+        int bonusNumber = 7;
+        Lotto lotto = new Lotto(generatedNumbers);
+
+        int regularNumbersMatched = lotto.countRegularNumbers(winningNumbers);
+        int bonusNumberMatched = lotto.countBonusNumber(bonusNumber);
+
+        assertThat(regularNumbersMatched).isEqualTo(3);
+        assertThat(bonusNumberMatched).isEqualTo(1);
+    }
 }
