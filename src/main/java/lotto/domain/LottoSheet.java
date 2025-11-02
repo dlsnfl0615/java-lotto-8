@@ -9,14 +9,13 @@ public class LottoSheet {
         this.numbers = numbers;
     }
 
-    public int getMatchedCount(List<Integer> winningNumbers, int bonusNumber) {
-        int matchedNumbers = (int)numbers.stream()
-                                .filter(winningNumbers::contains)
-                                .count();
-        return matchedNumbers + getMatchedBonusCount(bonusNumber);
+    public int countRegularMatch(List<Integer> winningNumbers, int bonusNumber) {
+        return (int)numbers.stream()
+                .filter(winningNumbers::contains)
+                .count();
     }
 
-    public int getMatchedBonusCount(int bonusNumber) {
+    public int countBonusMatch(int bonusNumber) {
         return (int)numbers.stream()
                 .filter(n -> n == bonusNumber)
                 .count();
