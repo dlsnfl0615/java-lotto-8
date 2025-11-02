@@ -15,7 +15,7 @@ class LottoSheetTest {
         List<Integer> generatedNumbers = List.of(1, 2, 7, 4, 5, 6);
         int bonusNumber = 7;
         LottoSheet lottoSheet = new LottoSheet(generatedNumbers);
-        int matchedCount = lottoSheet.getMatchedCount(winningNumbers, bonusNumber);
+        int matchedCount = lottoSheet.countRegularMatch(winningNumbers, bonusNumber);
         assertThat(matchedCount).isEqualTo(4);
     }
 }
