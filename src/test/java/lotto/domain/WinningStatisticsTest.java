@@ -1,20 +1,18 @@
 package lotto.domain;
 
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 class WinningStatisticsTest {
     @Test
-    @DisplayName("3등 로또가 1개 당첨됨")
-    void singleThird() {
-        WinningStatistics statistics = new WinningStatistics(5000);
+    void 로또_3등_당첨() {
+        WinningStatistics statistics = new WinningStatistics();
         statistics.addRank(Rank.THIRD);
-        List<String> result = statistics.getStatistics();
+        List<String> result = statistics.getStatistics(5000);
 
-        for (String count : result) {
-            System.out.println(count);
-        }
+        assertThat(result).containsExactly("0", "0", "1", "0", "0", "30000.0");
     }
 }
