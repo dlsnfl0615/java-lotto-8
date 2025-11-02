@@ -46,8 +46,10 @@
 |-----------|------|
 | `LottoSheet` | 로또 한 장, 당첨 번호와 생성 번호 대조 |
 | `LottoMachine` | 로또 발매기에서 "자동 선택"으로 로또 뽑기 |
+| `Rank` | 등수와 상금에 대한 enum |
 | `LottoGenerator` | 로또 기계에서 로또 번호 생성 |
 | `ReturnRateGenerator` | 수익률 생성 |
+| `WinningStatics` | 각 등수에 몇 개가 당첨됐는지, 수익률은 얼만지 계산 |
 
 ### Validator
 
