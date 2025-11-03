@@ -12,6 +12,7 @@ public class LottoMachine {
         this.statistics = statistics;
     }
 
+    // 로또 발매기에서 로또 여러 장 뽑기
     public List<List<Integer>> buyLotto(int buyAmount) {
         List<List<Integer>> lottoTickets = new ArrayList<>();
 
