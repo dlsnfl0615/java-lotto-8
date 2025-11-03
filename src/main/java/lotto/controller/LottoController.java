@@ -21,17 +21,21 @@ public class LottoController {
     }
 
     public void run() {
+        // 구매 금액 입력
         int buyAmount = readBuyAmount();
 
+        // 로또 발매
         List<List<Integer>> lottoTickets = lottoMachine.buyLotto(buyAmount);
         output.printLottoTickets(lottoTickets, buyAmount);
 
+        // 당첨 번호와 보너스 번호 입력
         List<Integer> winningNumbers = readNumbers();
-
         int bonusNumber = readBonusNumber();
 
+        // 당첨 확인
         List<String> statistics = lottoMachine.calculateRanks(lottoTickets, winningNumbers, bonusNumber, buyAmount);
 
+        // 출력
         output.printResult(statistics);
     }
 
