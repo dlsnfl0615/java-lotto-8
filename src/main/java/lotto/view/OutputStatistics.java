@@ -26,6 +26,7 @@ public class OutputStatistics {
         }
     }
 
+    // 정수형을 문자열로 한 곳에 모아서 출력하기 위해
     public List<String> mergeNumbers(List<List<Integer>> lottoTickets) {
         List<String> result = new ArrayList<>();
         for (List<Integer> ticket : lottoTickets) {
