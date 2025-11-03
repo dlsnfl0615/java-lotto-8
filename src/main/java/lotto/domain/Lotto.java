@@ -30,6 +30,7 @@ public class Lotto {
         }
     }
 
+    // 보너스 번호가 아닌 일반 번호 대조
     public int countRegularNumbers(List<Integer> winningNumbers) {
         return (int)numbers.stream()
                 .filter(winningNumbers::contains)
