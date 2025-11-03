@@ -14,7 +14,6 @@ public class InputNumberValidator {
     public int isValidBuyAmount(String buyAmount) {
         int inputToInt;
 
-        // 4,000와 같이 쉼표로 자릿수를 구분한 문자열은 입력 허용
         try {
             inputToInt = Integer.parseInt(deleteComma(buyAmount));
         } catch (NumberFormatException e) {
