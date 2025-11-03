@@ -11,24 +11,24 @@ public class InputNumberValidator {
     private final int maximumNumber = 45;
 
     // 구매 금액이 올바른 수인지 검증
-    public int isValidBuyAmount(String buyAmount) {
-        int inputToInt;
+    public int isValidBuyAmount(String userInput) {
+        int buyAmount;
 
         try {
-            inputToInt = Integer.parseInt(deleteComma(buyAmount));
+            buyAmount = Integer.parseInt(deleteComma(userInput));
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessages.NOT_DIGIT.getMessage());
         }
 
-        if (inputToInt == 0) {
+        if (buyAmount == 0) {
             throw new IllegalArgumentException(ErrorMessages.ZERO.getMessage());
         }
 
-        if (inputToInt % 1000 != 0) {
+        if (buyAmount % 1000 != 0) {
             throw new IllegalArgumentException(ErrorMessages.NOT_MULTIPLE_THOUSAND.getMessage());
         }
 
-        return inputToInt;
+        return buyAmount;
     }
 
     public String deleteComma(String buyAmount) {
@@ -40,12 +40,12 @@ public class InputNumberValidator {
     }
 
     // 당첨 번호 분리
-    public List<Integer> separateInput(String input) {
-        String canDivide = isDividedWithComma(input);
+    public List<Integer> separateInput(String userInput) {
+        String canDivide = isDividedWithComma(userInput);
 
         List<String> separated = Arrays.stream(canDivide.split(",")).toList();
 
-        return isDigit(separated);
+        return toDigit(separated);
     }
 
     public String isDividedWithComma(String input) {
@@ -58,24 +58,24 @@ public class InputNumberValidator {
         return input;
     }
 
-    public List<Integer> isDigit(List<String> separated) {
-        List<Integer> stringToInteger = new ArrayList<>();
+    public List<Integer> toDigit(List<String> separated) {
+        List<Integer> winningNumbers = new ArrayList<>();
         try {
             for (String number : separated) {
-                stringToInteger.add(Integer.parseInt(number));
+                winningNumbers.add(Integer.parseInt(number));
             }
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessages.OUT_OF_RANGE.getMessage());
         }
 
-        return stringToInteger;
+        return winningNumbers;
     }
 
     // 보너스 번호 검증
-    public int isValidBonusNumber(String input) {
+    public int isValidBonusNumber(String userInput) {
         int bonusNumber;
         try {
-            bonusNumber = Integer.parseInt(input);
+            bonusNumber = Integer.parseInt(userInput);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessages.NOT_DIGIT.getMessage());
         }
