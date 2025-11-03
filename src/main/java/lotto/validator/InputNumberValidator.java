@@ -21,6 +21,10 @@ public class InputNumberValidator {
             throw new IllegalArgumentException(ErrorMessages.NOT_DIGIT.getMessage());
         }
 
+        if (inputToInt == 0) {
+            throw new IllegalArgumentException(ErrorMessages.ZERO.getMessage());
+        }
+
         if (inputToInt % 1000 != 0) {
             throw new IllegalArgumentException(ErrorMessages.NOT_MULTIPLE_THOUSAND.getMessage());
         }
